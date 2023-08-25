@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Link to Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .registration-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .registration-container h2 {
+      color: rgb(10, 86, 2);
+      font-family: 'Times New Roman';
+      font-weight: bold;
+      margin: 20px;
+    }
+
+    .registration-container p {
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      color: #555;
+      padding: 5px;
+      font-size: 18px;
+      font-family: sans-serif;
+    }
+
+    .form-control {
+      border-radius: 5px;
+      border-color: #ccc;
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .btn-register {
+      background-color: #27ae60;
+      /* Green color */
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: bold;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-register:hover {
+      transition: all 0.5s;
+      color: white;
+      background-color: #219c52;
+      /* Darker green color on hover */
+    }
+
+    .already-account {
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .already-account a {
+      color: #e74c3c;
+      /* Red color */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .header {
+      background-color: #000000;
+      color: #fff;
+      padding: 20px 20px;
+      margin-bottom: 50px;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+    h2{
+      font-family: 'Times New Roman';
+
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .header-button {
+      background-color: #27ae60;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 15px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .header-button:hover {
+      background-color: #72ffad;
+      transition: all 0.5s;
+      color: black;
+    }
+
+    .dashboard-container {
+      padding: 20px;
+    }
+
+    .card {
+      border: none;
+    }
+
+    .card-header {
+      background-color: #f8f9fa;
+    }
+footer{
+  margin-top: 50px;
+  background-color: #000000;
+}
+    .card-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      margin-bottom: 15px;
+    }
+
+    .btn-green {
+      background-color: #28a745;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>BLOGS</h2>
+        <div class="header-buttons">
+          <a href="/add" class="btn btn-dark d-block ms-4">Craete New</a>
+
+          <button class="header-button" >Home</button>
+          <button class="header-button">About</button>
+          <button class="header-button">Contact</button>
+          <button class="header-button">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Body -->
+  <section>
+    <div class="container mt-4">
+      <div class="row">
+        <% Record.map((val)=> { %>
+          <div class="card ps-1 border border-2 mx-2" style="width: 17rem;">
+            <img src="<%= val.image %>" class="card-img-top pt-2 ps-2">
+            <div class="card-body">
+              <h5 class="card-title">Title:<%= val.title %></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Description:<%= val.description %></li>
+            </ul>
+            <div class="card-body">
+              <button class="btn btn-dark">
+                  <a href="/deleteData?id=<%= val.id %>" class="text-white">Delete</a>
+              </button>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+
+      <!-- Footer -->
+      <footer class="text-white text-center py-3">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+      </footer>
+
+
+    
+</body>
+
+</html>
